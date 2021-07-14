@@ -1,20 +1,27 @@
 <template>
   <div class="about">
-    <h1>This is an about page</h1>
-    <v-snackbar v-model="snackTest" timeout="3000" centered>This is a test.</v-snackbar>
-    <v-btn @click="test">Test</v-btn>
+    <v-expand-x-transition>
+      <v-img src="../assets/coming-soon.jpg" v-show="show"/>
+    </v-expand-x-transition>
   </div>
 </template>
 
 <script>
 export default {
   data: () => ({
-    snackTest: false
+    show: false
   }),
+  created() {
+    this.test();
+  },
   methods: {
     test() {
-      this.snackTest = true
+      setTimeout(() => {
+        this.show = true
+      }, 300)
     }
   }
+  
+  
 }
 </script>
